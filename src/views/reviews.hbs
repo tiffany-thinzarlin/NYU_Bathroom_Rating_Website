@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Reviews</title>
+  </head>
+  <body>
+    <h1>Reviews</h1>
+    {{#if reviews.length}}
+      <ul>
+        {{#each reviews}}
+          <li>
+            <h2>{{this.bathroom}}</h2>
+            <p>Rating: {{this.rating}}</p>
+            {{#if this.review}}
+              <p>{{this.review}}</p>
+            {{else}}
+              <p>No review available</p>
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>No reviews available</p>
+    {{/if}}
+  </body>
+</html>
