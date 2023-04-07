@@ -46,7 +46,6 @@ app.get("/addReview", async (req, res) => {
 });
 
 app.post("/addReview", async (req, res) => {
-  console.log(req.body.bathroom);
   const newReview = new Review({
     bathroom: sanitize(req.body.bathroom),
     review: sanitize(req.body.review),

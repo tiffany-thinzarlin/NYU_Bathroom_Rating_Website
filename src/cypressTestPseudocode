@@ -1,0 +1,4 @@
+cy.visit("http://linserv1.cims.nyu.edu:22345/");
+assertion to see if the home page is visited.
+click on reviews to see if review page is visited
+click on add a review to see if add a review page is visited.
