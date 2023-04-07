@@ -1,4 +1,24 @@
-cy.visit("http://linserv1.cims.nyu.edu:22345/");
-assertion to see if the home page is visited.
-click on reviews to see if review page is visited
-click on add a review to see if add a review page is visited.
+describe("Routes", () => {
+beforeEach(() => {
+cy.visit("/");
+});
+
+it("should load the home page successfully", () => {
+cy.contains("NYU BATHROOM REVIEW SITE");
+});
+
+it("should display reviews successfully", () => {
+cy.visit("/reviews");
+cy.contains("h1", "Reviews");
+});
+
+it("should allow adding a review successfully", () => {
+cy.visit("/addReview");
+cy.get("#bathroom-input").type("Test Bathroom");
+cy.get("#review-input").type("This is a test review.");
+cy.get("#rating-input").select("5");
+cy.get("#submit-button").click();
+cy.url().should("include", "/reviews");
+cy.contains("Test Bathroom");
+});
+});
