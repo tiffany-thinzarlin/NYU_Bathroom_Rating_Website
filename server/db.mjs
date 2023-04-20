@@ -21,15 +21,6 @@ if (process.env.NODE_ENV === "PRODUCTION") {
   dbconf = "mongodb://localhost/final-project";
 }
 mongoose.connect(dbconf);
-/*
-console.log("Waiting for connection to database...");
-try {
-  await mongoose.connect("mongodb://tl2853:", { useNewUrlParser: true });
-  console.log("Successfully connected to database.");
-} catch (err) {
-  console.log("ERROR: ", err);
-}
-*/
 mongoose.plugin(slug);
 
 const UserSchema = new mongoose.Schema({
