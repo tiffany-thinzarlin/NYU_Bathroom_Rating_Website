@@ -59,7 +59,6 @@ app.get("/filterReview", async (req, res) => {
 
   try {
     const reviews = await Review.find(filter);
-    console.log("REVIEWS", reviews);
     res.json(reviews);
   } catch (err) {
     res.status(400).json("Error: " + err);
@@ -68,20 +67,15 @@ app.get("/filterReview", async (req, res) => {
 
 app.get("/filterNameReview", async (req, res) => {
   let { bathroom } = req.query;
-  console.log("HERE");
-  console.log("BATHROOM", req.query);
   let filter = {};
 
   if (bathroom) {
-    console.log("HERE");
     bathroom = bathroom; // trim leading/trailing white spaces
     filter.bathroom = bathroom;
   }
 
   try {
-    console.log("BATHROOM", filter.bathroom);
     const reviews = await Review.find(filter);
-    console.log("REVIEWS", reviews);
     res.json(reviews);
   } catch (err) {
     res.status(400).json("Error: " + err);
