@@ -41,26 +41,53 @@ app.get("/reviews", async (req, res) => {
     .then((reviews) => res.json(reviews))
     .catch((err) => res.status(400).json("Error: " + err));
 });
-/*
-app.get("/addReview", async (req, res) => {
-  res.render("addReview");
-});
 
-app.post("/addReview", async (req, res) => {
-  const newReview = new Review({
-    bathroom: sanitize(req.body.bathroom),
-    review: sanitize(req.body.review),
-    rating: sanitize(req.body.rating),
-  });
+app.get("/filterReview", async (req, res) => {
+  const { minRating, maxRating } = req.query;
+  let filter = {};
+  if (minRating) {
+    filter.rating = { $gte: parseInt(minRating) };
+  }
+
+  if (maxRating) {
+    if (filter.rating) {
+      filter.rating.$lte = parseInt(maxRating);
+    } else {
+      filter.rating = { $lte: parseInt(maxRating) };
+    }
+  }
+
   try {
-    await newReview.save();
-    console.log(newReview);
-    res.redirect("/reviews");
-  } catch (error) {
-    throw error;
+    const reviews = await Review.find(filter);
+    console.log("REVIEWS", reviews);
+    res.json(reviews);
+  } catch (err) {
+    res.status(400).json("Error: " + err);
   }
 });
-*/
+
+app.get("/filterNameReview", async (req, res) => {
+  let { bathroom } = req.query;
+  console.log("HERE");
+  console.log("BATHROOM", req.query);
+  let filter = {};
+
+  if (bathroom) {
+    console.log("HERE");
+    bathroom = bathroom; // trim leading/trailing white spaces
+    filter.bathroom = bathroom;
+  }
+
+  try {
+    console.log("BATHROOM", filter.bathroom);
+    const reviews = await Review.find(filter);
+    console.log("REVIEWS", reviews);
+    res.json(reviews);
+  } catch (err) {
+    res.status(400).json("Error: " + err);
+  }
+});
+
 //express.json.
 app.post("/addReview", async (req, res) => {
   const newReview = new Review({
@@ -80,4 +107,4 @@ app.post("/addReview", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT ?? 3000);
+app.listen(process.env.PORT ?? 3001);
