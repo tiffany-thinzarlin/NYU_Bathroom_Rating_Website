@@ -1,10 +1,6 @@
-The content below is an example project proposal / requirements document. Replace the text below the lines marked "**TODO**" with details specific to your project. Remove the "TODO" lines.
-
 (NYU Bathroom Rating Website)
 
 ## Overview
-
-(**TODO**: a brief one or two paragraph, high-level description of your project)
 
 As an avid bathroom goer, I have spent many hours in NYU bathrooms. Through my personal experience, I've slowly gathered information on where the quietest and cleanest bathrooms are in some NYU buildings that I frequent. Using this as inspiration, I thought wouldn't others like me be also interested in knowing where the best bathrooms are in NYU to do their personal business in peace? Hence, the reason why I'm creating a website that lets people write and read reviews about bathrooms in NYU.
 
@@ -12,14 +8,12 @@ Using the web application, users will be able to see the rating, reviews, and lo
 
 ## Data Model
 
-(**TODO**: a description of your application's data and their relationships to each other)
-
 The application will store Users and Bathroom informations
 
 - users can write multiple reviews and ratings
 - each bathroom will have multiple written reviews and ratings, includings pictures of the bathroom.
 
-(**TODO**: sample documents)
+## Sample Documents
 
 Example of User information:
 
@@ -47,8 +41,6 @@ An Example List of Review:
 
 ## [Link to Commented First Draft Schema](db.mjs)
 
-(**TODO**: create a first draft of your Schemas in db.mjs and link to it)
-
 {
 "name": String, // Name of the bathroom location
 "address": String, // Address of the bathroom location
@@ -74,8 +66,6 @@ An Example List of Review:
 
 ## Wireframes
 
-(**TODO**: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc.)
-
 /list/create - page for creating a new shopping list
 
 ![list create](documentation/list-create.png)
@@ -90,13 +80,9 @@ An Example List of Review:
 
 ## Site map
 
-(**TODO**: draw out a site map that shows how pages are related to each other)
-
 main page (with bathroom reviews by users) -> user login/signup page -> signup page to create a new user -> login page -> user see their previous reviews, updates on new reviews and can write new reviews
 
 ## User Stories or Use Cases
-
-(**TODO**: write out how your application will be used through [user stories](http://en.wikipedia.org/wiki/User_story#Format) and / or [use cases](https://en.wikipedia.org/wiki/Use_case))
 
 1. as non-registered user, I can register a new account with the site
 2. as a user, I can log in to the site
@@ -106,8 +92,6 @@ main page (with bathroom reviews by users) -> user login/signup page -> signup p
 6. as a non-registered user and user, I am able to scroll through all written reviews
 
 ## Research Topics
-
-(**TODO**: the research topics that you're planning on working on along with their point values... and the total points of research topics listed)
 
 -(3 points) Will perform unit testing with javascript
 
@@ -120,15 +104,11 @@ main page (with bathroom reviews by users) -> user login/signup page -> signup p
 
 -(6 points) Will use react to create the front-end
 
-11 points total out of 10 required points (**\_TODO**: addtional points will **not** count for extra credit)
+11 points total out of 10 required points
 
 ## [Link to Initial Main Project File](app.mjs)
 
-(**TODO**: create a skeleton Express application with a package.json, app.mjs, views folder, etc. ... and link to your initial app.mjs)
-
 ## Annotations / References Used
-
-(**TODO**: list any tutorials/references/etc. that you've based your code off of)
 
 1. jest: https://www.youtube.com/watch?v=ajiAl5UNzBU
 2. cypress: https://www.youtube.com/watch?v=69SFwgWHUig&list=PLUDwpEzHYYLvA7QFkC1C0y0pDPqYS56iU
